@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
-const AddStudent = (props) => {
+const AddUser = (props) => {
 
     let navigate = useNavigate();
 
@@ -11,7 +11,7 @@ const AddStudent = (props) => {
     const [degree, setDegree] = useState("")
     const [department, setDepartment] = useState("")
 
-    // adding the new student
+    // adding the new user
     let handleSave = async (event) => {
         event.preventDefault();
         await fetch('https://614eac09b4f6d30017b482e5.mockapi.io/users/', {
@@ -28,12 +28,12 @@ const AddStudent = (props) => {
                 email: email
             })
         });
-        navigate("/all-students");
+        navigate("/users");
     }
     return (
         <div className='container'>
             <form>
-                <h1>Add Student</h1>
+                <h1>Add user</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Name</label>
                     <input type="text" onChange={(event => setName(event.target.value))} className="form-control" />
@@ -60,4 +60,4 @@ const AddStudent = (props) => {
     )
 }
 
-export default AddStudent
+export default AddUser

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router';
 
-const AllStudents = () => {
+const AllUsers = () => {
     let apiUrl = "https://614eac09b4f6d30017b482e5.mockapi.io/users/";
 
     // API CRUD 
@@ -54,7 +54,7 @@ const AllStudents = () => {
                             <td>{e.department}</td>
                             <td>
 
-                                <button className='btn btn-warning mr-2 my-2' onClick={() => { navigate('/edit-student/' + e.id) }}>Edit</button>
+                                <button className='btn btn-warning mr-2 my-2' onClick={() => { navigate('/edit-user/' + e.id) }}>Edit</button>
                                 <button className='btn btn-danger' onClick={() => handleDelete(e.id)}>Delete</button>
                             </td>
                         </tr>
@@ -66,4 +66,4 @@ const AllStudents = () => {
     </div>
 }
 
-export default AllStudents
+export default AllUsers

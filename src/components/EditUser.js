@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router';
 import { useParams } from "react-router-dom";
-const EditStudent = (props) => {
+const EditUser = (props) => {
 
     let navigate = useNavigate();
     const params = useParams();
@@ -48,7 +48,7 @@ const EditStudent = (props) => {
             })
         }).then(res => {
         })
-        navigate("/all-students");
+        navigate("/users");
     }
     return (
         <div className='container'>
@@ -61,7 +61,6 @@ const EditStudent = (props) => {
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input type="email" value={email || ''} className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="Enter email" />
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Mobile</label>
@@ -81,4 +80,4 @@ const EditStudent = (props) => {
     )
 }
 
-export default EditStudent
+export default EditUser
