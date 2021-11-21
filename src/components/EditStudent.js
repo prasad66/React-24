@@ -13,12 +13,14 @@ const EditStudent = (props) => {
         }
     }, [])
 
+    // state mangmt. for the editing values and to be submitted
     const [name, setName] = useState("");
     const [email, setEmail] = useState("")
     const [mobile, setMobile] = useState("")
     const [degree, setDegree] = useState("")
     const [department, setDepartment] = useState("")
 
+    // loading the values for the data to be edited
     const getData = async () => {
         await fetch('https://614eac09b4f6d30017b482e5.mockapi.io/users/' + params.id)
             .then(res => res.json())
@@ -33,6 +35,7 @@ const EditStudent = (props) => {
 
     };
 
+    // saving edited data
     let handleSave = async (event) => {
         event.preventDefault();
         await fetch('https://614eac09b4f6d30017b482e5.mockapi.io/users/' + params.id, {
@@ -44,7 +47,7 @@ const EditStudent = (props) => {
                 name, email, mobile, degree, department
             })
         }).then(res => {
-    })
+        })
         navigate("/all-students");
     }
     return (

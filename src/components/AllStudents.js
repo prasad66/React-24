@@ -1,11 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router';
 
 const AllStudents = () => {
     let apiUrl = "https://614eac09b4f6d30017b482e5.mockapi.io/users/";
 
-    // API CRUD
-    // setInterval(()=>{getData()},5000)
+    // API CRUD 
     useEffect(() => {
         getData();
     }, []);
@@ -13,8 +13,9 @@ const AllStudents = () => {
     let navigate = useNavigate();
     const [data, setData] = useState([]);
 
+    // get all the users list
     let getData = async () => {
-        await fetch("https://614eac09b4f6d30017b482e5.mockapi.io/users/")
+        await fetch(apiUrl)
             .then(res => res.json())
             .then(res => {
                 setData(res);
@@ -22,15 +23,16 @@ const AllStudents = () => {
             .catch(error => { console.error(error) })
     }
 
+    // delete handler
     let handleDelete = async (id) => {
-        await fetch(apiUrl+id, {
+        await fetch(apiUrl + id, {
             method: 'DELETE',
         }).then(res => { getData() })
             .catch(error => { console.error(error) })
     }
 
     return <div className='container-fluid my-3'>
-        <table className="table table-striped">
+        <table className="table table-striped text-center">
             <thead className="thead-dark">
                 <tr>
                     <th>Name</th>
@@ -52,7 +54,7 @@ const AllStudents = () => {
                             <td>{e.department}</td>
                             <td>
 
-                                <button className='btn btn-warning' onClick={() => { navigate('/edit-student/'+e.id) }}>Edit</button>&nbsp;&nbsp;
+                                <button className='btn btn-warning mr-2 my-2' onClick={() => { navigate('/edit-student/' + e.id) }}>Edit</button>
                                 <button className='btn btn-danger' onClick={() => handleDelete(e.id)}>Delete</button>
                             </td>
                         </tr>

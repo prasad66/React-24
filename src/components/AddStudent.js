@@ -4,27 +4,29 @@ const AddStudent = (props) => {
 
     let navigate = useNavigate();
 
+    // state mangmt for the new values
     const [name, setName] = useState("");
     const [email, setEmail] = useState("")
     const [mobile, setMobile] = useState("")
     const [degree, setDegree] = useState("")
     const [department, setDepartment] = useState("")
 
+    // adding the new student
     let handleSave = async (event) => {
         event.preventDefault();
         await fetch('https://614eac09b4f6d30017b482e5.mockapi.io/users/', {
-            method: 'POST', 
-    
+            method: 'POST',
+
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name:name,
-                degree:degree,
-                department:department,
-                mobile:mobile,
-                email:email
-            }) 
+                name: name,
+                degree: degree,
+                department: department,
+                mobile: mobile,
+                email: email
+            })
         });
         navigate("/all-students");
     }
