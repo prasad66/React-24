@@ -53,7 +53,7 @@ const EditUser = (props) => {
     return (
         <div className='container'>
             <form>
-                <h1>Edit Student</h1>
+                <h1>Edit User</h1>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Name</label>
                     <input type="text" value={name || ''} className="form-control" onChange={(e) => setName(e.target.value)} placeholder="Name" />
